@@ -4,7 +4,7 @@
 
 #define BOYUT 500
 
-// Insertion Sort (Birleþtirmeli Sýralama) fonksiyonu
+
 void birlestirmeliSirala(int dizi[], int n) {
     int i, anahtar, j;
     for (i = 1; i < n; i++) {
@@ -19,7 +19,7 @@ void birlestirmeliSirala(int dizi[], int n) {
     }
 }
 
-// Selection Sort (Seçmeli Sýralama) fonksiyonu
+
 void secmeliSirala(int dizi[], int n) {
     int i, j, min_indeks, temp;
     for (i = 0; i < n-1; i++) {
@@ -34,21 +34,21 @@ void secmeliSirala(int dizi[], int n) {
     }
 }
 
-// Rastgele bir dizi oluþturma fonksiyonu
+
 void rastgeleDiziOlustur(int dizi[], int n) {
     for (int i = 0; i < n; i++) {
-        dizi[i] = rand() % 1001; // 0 ile 1000 arasýnda rastgele sayý oluþtur
+        dizi[i] = rand() % 1001; // 0 ile 1000 arasÃ½nda rastgele sayÃ½ oluÃ¾tur
     }
 }
 
-// Diziyi kopyalama fonksiyonu
+
 void diziKopyala(int kaynak[], int hedef[], int n) {
     for (int i = 0; i < n; i++) {
         hedef[i] = kaynak[i];
     }
 }
 
-// Diziyi ekrana yazdýrma fonksiyonu
+
 void diziYazdir(int dizi[], int n) {
     for (int i = 0; i < n; i++) {
         printf("%d ", dizi[i]);
@@ -62,35 +62,35 @@ int main() {
     clock_t baslangic, bitis;
     double gecen_sure;
 
-    // Rastgele sayý üreticiyi baþlat
+    
     srand(time(0));
 
-    // Rastgele dizi oluþtur
+    
     rastgeleDiziOlustur(dizi, BOYUT);
 
-    // Diziyi dizi1 ve dizi2'ye kopyala
+    
     diziKopyala(dizi, dizi1, BOYUT);
     diziKopyala(dizi, dizi2, BOYUT);
 
-    // Birleþtirmeli Sýralama için zamaný ölç
+    
     baslangic = clock();
     birlestirmeliSirala(dizi1, BOYUT);
     bitis = clock();
     gecen_sure = ((double) (bitis - baslangic)) / CLOCKS_PER_SEC;
     printf("Birlestirmeli Siralama suresi: %f saniye\n", gecen_sure);
 
-    // Sýralanmýþ diziyi yazdýr
-    printf("Birlestirmeli Siralama sonrasý dizi: ");
+   
+    printf("Birlestirmeli Siralama sonrasÃ½ dizi: ");
     diziYazdir(dizi1, BOYUT);
 
-    // Seçmeli Sýralama için zamaný ölç
+   
     baslangic = clock();
     secmeliSirala(dizi2, BOYUT);
     bitis = clock();
     gecen_sure = ((double) (bitis - baslangic)) / CLOCKS_PER_SEC;
     printf("Secmeli Siralama suresi: %f saniye\n", gecen_sure);
 
-    // Sýralanmýþ diziyi yazdýr
+    
     printf("Secmeli Siralama sonrasi dizi: ");
     diziYazdir(dizi2, BOYUT);
 
